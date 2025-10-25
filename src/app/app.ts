@@ -1,12 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { ListsManagerComponent } from './lists-manager/lists-manager';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  standalone: true,
+  imports: [ListsManagerComponent],
+  template: '<app-lists-manager></app-lists-manager>',
+  styles: []
 })
-export class App {
-  protected readonly title = signal('claude-tototo');
+export class AppComponent {
+  title = 'lists-manager-app';
 }

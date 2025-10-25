@@ -1,0 +1,228 @@
+.container {
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.header p {
+  margin: 10px 0 0 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.sidebar, .content-panel {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2, .content-panel h2 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.create-list-form, .add-item-form {
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-success {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-save {
+  padding: 6px 12px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-cancel {
+  padding: 6px 12px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-edit {
+  padding: 6px 12px;
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-danger {
+  padding: 6px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.empty-message {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+}
+
+.list-card {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-card.selected {
+  background-color: #3498db;
+  color: white;
+}
+
+.list-info {
+  flex: 1;
+}
+
+.list-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.list-count {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.btn-delete {
+  background-color: transparent;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.list-card.selected .btn-delete {
+  color: white;
+}
+
+.item-card {
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkbox {
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+}
+
+.item-text {
+  flex: 1;
+  font-size: 14px;
+}
+
+.item-text.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 6px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.item-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.no-selection {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.no-selection .icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.no-selection h3 {
+  margin: 0 0 10px 0;
+}
+
+.no-selection p {
+  margin: 0;
+}

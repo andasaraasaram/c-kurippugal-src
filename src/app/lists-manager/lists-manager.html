@@ -1,1 +1,128 @@
-<p>lists-manager works!</p>
+<div class="container">
+  <header class="header">
+    <h1>Lists Manager</h1>
+    <p>Organize your tasks with custom lists</p>
+  </header>
+
+  <div class="main-grid">
+    <!-- Lists Sidebar -->
+    <div class="sidebar">
+      <h2>My Lists</h2>
+      
+      <div class="create-list-form">
+        <input
+          type="text"
+          [(ngModel)]="newListName"
+          (keyup.enter)="createList()"
+          placeholder="New list name..."
+          class="input-field"
+        />
+        <button (click)="createList()" class="btn btn-primary">
+          Create List
+        </button>
+      </div>
+
+      <div class="lists-container">
+        <p *ngIf="lists.length === 0" class="empty-message">
+          No lists yet. Create one to get started!
+        </p>
+        
+        <div
+          *ngFor="let list of lists"
+          [class.selected]="selectedListId === list.id"
+          class="list-card"
+          (click)="selectList(list.id)"
+        >
+          <div class="list-info">
+            <div class="list-name">{{ list.name }}</div>
+            <div class="list-count">{{ list.items.length }} items</div>
+          </div>
+          <button
+            (click)="deleteList(list.id); $event.stopPropagation()"
+            class="btn-delete"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Items Panel -->
+    <div class="content-panel">
+      @if (getSelectedList()) {
+        <h2>{{ getSelectedList()?.name }}</h2>
+
+        <div class="add-item-form">
+          <input
+            type="text"
+            [(ngModel)]="newItemText"
+            (keyup.enter)="addItem()"
+            placeholder="Add new item..."
+            class="input-field"
+          />
+          <button (click)="addItem()" class="btn btn-success">
+            Add Item
+          </button>
+        </div>
+
+        <div class="items-container">
+          <p *ngIf="getSelectedList() && getSelectedList()!.items.length === 0" class="empty-message">
+            No items yet. Add your first item above!
+          </p>
+
+          @for (item of getSelectedList()?.items ?? []; track item.id) {
+            <div class="item-card">
+              <input
+                type="checkbox"
+                [checked]="item.completed"
+                (change)="toggleItemComplete(item.id)"
+                class="checkbox"
+              />
+
+              @if (editingItemId === item.id) {
+                <input
+                  type="text"
+                  [(ngModel)]="editingItemText"
+                  (keyup.enter)="saveEditItem()"
+                  class="edit-input"
+                  autofocus
+                />
+              } @else {
+                <span
+                  [class.completed]="item.completed"
+                  class="item-text"
+                >
+                  {{ item.text }}
+                </span>
+              }
+
+              <div class="item-actions">
+                @if (editingItemId === item.id) {
+                  <button (click)="saveEditItem()" class="btn btn-save">
+                    Save
+                  </button>
+                  <button (click)="cancelEdit()" class="btn btn-cancel">
+                    Cancel
+                  </button>
+                } @else {
+                  <button (click)="startEditItem(item)" class="btn btn-edit">
+                    Edit
+                  </button>
+                  <button (click)="deleteItem(item.id)" class="btn btn-danger">
+                    Delete
+                  </button>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="no-selection">
+          <div class="icon">📋</div>
+          <h3>No List Selected</h3>
+          <p>Select a list from the sidebar or create a new one</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>
