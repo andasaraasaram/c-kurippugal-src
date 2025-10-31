@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "claude-tototo": {
+    "c-kurippugal": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "claude-tototo:build:production"
+              "buildTarget": "c-kurippugal:build:production"
             },
             "development": {
-              "buildTarget": "claude-tototo:build:development"
+              "buildTarget": "c-kurippugal:build:development"
             }
           },
           "defaultConfiguration": "development"
